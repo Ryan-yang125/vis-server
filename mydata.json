@@ -1,0 +1,19 @@
+{
+    "name":"top",
+    "children":[
+        {"name":"World Cup",
+        "children":[
+            {
+                "name":"German",
+                "children":[
+                    {
+                        "name":"England",
+                        "value":2
+                    }
+                ]
+            }
+        ]
+        },
+        {}
+    ]
+}
