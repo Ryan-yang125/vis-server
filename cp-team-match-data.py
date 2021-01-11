@@ -1,11 +1,12 @@
 '''
-Author: your name
+Author: Yang Rui
 Date: 2021-01-11 01:49:24
-LastEditTime: 2021-01-11 17:32:32
+LastEditTime: 2021-01-11 19:26:55
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /python-server/data_process.py
 '''
+# TODO fix european and wordl cup
 import json
 import os
 
@@ -58,5 +59,5 @@ for competition in competitions:
                 match_data['children'].append(
                     {"name": v_team['name'], "wyId": match_id})
 
-with open('data.json', 'w') as file:
+with open('match-data.json', 'w') as file:
     json.dump(hireac_data, file)
