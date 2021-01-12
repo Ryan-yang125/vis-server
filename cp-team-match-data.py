@@ -1,7 +1,7 @@
 '''
 Author: Yang Rui
 Date: 2021-01-11 01:49:24
-LastEditTime: 2021-01-11 19:26:55
+LastEditTime: 2021-01-12 21:38:51
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /python-server/data_process.py
@@ -51,13 +51,14 @@ for competition in competitions:
             print(team_ids)
             if str(t_id) in team_ids:
                 match_id = match['wyId']
+                match_label = match['label']
                 t_index = team_ids.index(str(t_id))
                 v_team_id = team_ids[t_index ^ 1]
                 # 需要转换为int，否则查询不到
                 v_team = team_info.find_one({"wyId": int(v_team_id)}, {
                     "_id": 0, 'wyId': 1, 'name': 1})
                 match_data['children'].append(
-                    {"name": v_team['name'], "wyId": match_id})
+                    {"name": v_team['name'], "wyId": match_id, "label": match_label})
 
 with open('match-data.json', 'w') as file:
     json.dump(hireac_data, file)
