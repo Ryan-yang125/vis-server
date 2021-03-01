@@ -1,11 +1,3 @@
-'''
-Author: Yang Rui
-Date: 2021-01-11 19:27:20
-LastEditTime: 2021-01-12 22:01:49
-LastEditors: Please set LastEditors
-Description: In User Settings Edit
-FilePath: /python-server/clustering-process.py
-'''
 import pymongo
 from bson.json_util import loads, dumps
 import json

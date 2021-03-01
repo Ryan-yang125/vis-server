@@ -1,7 +1,7 @@
 '''
 Author: Yang Rui
 Date: 2021-01-11 01:43:31
-LastEditTime: 2021-01-12 21:54:15
+LastEditTime: 2021-01-15 11:28:34
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /python-server/server.py
@@ -21,13 +21,13 @@ client = pymongo.MongoClient(host='localhost', port=27017)
 @cross_origin()
 def get_clustered():
     matchId = request.args.get('wyId')
-    print(matchId)
+    phases_num = request.args.get('clusters')
+    print(phases_num)
     phases = find_phases(client, matchId)
-    print(phases)
-    clustered_phases = clustering_phases(phases, 10)
+    clustered_phases = clustering_phases(phases, int(phases_num))
     ranked_clusters = rank_clusters_shots(clustered_phases)
     return ranked_clusters
 
 
 if __name__ == '__main__':
-    app.run(port=5500, debug=True)
+    app.run(port=5050, debug=True)
